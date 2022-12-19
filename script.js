@@ -9,6 +9,7 @@ function Book(title,author,pages,read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    displayLibrary();
 }
 
 const addBookBtn = document.querySelector('#addBookButton');
@@ -40,7 +41,15 @@ function closeBookForm() {
 
 function displayLibrary() {
     const contentDiv = document.querySelector('#content');
+    // Clear existing books
+    while (contentDiv.firstChild) {
+        contentDiv.removeChild(contentDiv.firstChild);
+    }
+
+    // Loop through each book in library
+    let index = 0;
     myLibrary.forEach((book) => {
+        // console.log(index);
         const bookTable = document.createElement('table');
         for (const [key,value] of Object.entries(book)) {
             // console.log(`${key}: ${value}`);
@@ -59,13 +68,28 @@ function displayLibrary() {
             bookTable.appendChild(tr);
         }
         contentDiv.appendChild(bookTable);
+
+        const readSwitch = document.createElement('input');
+        const readLabel = document.createElement('label');
+        const readLabelText = document.createElement('p');
+
+        readSwitch.setAttribute('type','checkbox');
+        readSwitch.setAttribute('id','switch' + index);
+        readLabel.setAttribute('for','switch' + index)
+        readLabel.setAttribute('class','toggle');
+        readLabelText.innerText = 'UNREAD    READ';
+
+        readLabel.appendChild(readLabelText);
+        contentDiv.appendChild(readSwitch);
+        contentDiv.appendChild(readLabel);
+        ++index;
     })
 }
 
+displayLibrary();
 console.log(myLibrary);
 let book1 = new Book("best book","me",214,true);
-let book2 = new Book("worst book","me",214,true);
+let book2 = new Book("worst book","you",214,true);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 console.log(myLibrary);
-displayLibrary();
