@@ -55,11 +55,16 @@ function displayLibrary() {
     const bookTable = document.createElement('table');
     const readSwitch = document.createElement('input');
     const readLabel = document.createElement('label');
+    const deleteBtn = document.createElement('button');
+
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('class', 'checkbox');
     readSwitch.setAttribute('id', `switch${index}`);
     readLabel.setAttribute('for', `switch${index}`);
     readLabel.setAttribute('class', 'toggle');
+    deleteBtn.innerText = 'Delete';
+    deleteBtn.setAttribute('id', `delete${index}`);
+    deleteBtn.setAttribute('class', 'delete');
 
     for (const [key, value] of Object.entries(book)) {
       // console.log(`${key}: ${value}`);
@@ -82,6 +87,8 @@ function displayLibrary() {
     if (bookTable.rows[3].cells[1].innerText === 'true') {
       readSwitch.setAttribute('checked', 'checked');
     }
+
+    contentDiv.appendChild(deleteBtn);
     contentDiv.appendChild(bookTable);
     // const readLabelText = document.createElement('p');
 
@@ -91,18 +98,32 @@ function displayLibrary() {
       } else {
         console.log('unchecked');
       }
-      updateReadValue(book);
+      const libraryIndex = parseInt(event.currentTarget.id.substring(6)); // the id is 'switch[index]' so ignore first 6 characters
+      updateReadValue(libraryIndex);
     });
     // readLabelText.innerText = 'UNREAD    READ';
+
+    deleteBtn.addEventListener('click', (event) => {
+      const libraryIndex = parseInt(event.currentTarget.id.substring(6)); // the id is 'delete[index]' so ignore first 6 characters
+      deleteBook(libraryIndex);
+    });
 
     // readLabel.appendChild(readLabelText);
     contentDiv.appendChild(readSwitch);
     contentDiv.appendChild(readLabel);
-    ++index;
+    index += 1;
   });
 }
 
-function updateReadValue(book) {}
+function updateReadValue(libraryIndex) {
+  myLibrary[libraryIndex].read = !myLibrary[libraryIndex].read;
+  displayLibrary();
+}
+
+function deleteBook(libraryIndex) {
+  myLibrary.splice(libraryIndex, 1);
+  displayLibrary();
+}
 
 displayLibrary();
 console.log(myLibrary);
