@@ -15,15 +15,17 @@ function addBookToLibrary(book) {
 const addBookBtn = document.querySelector('#addBookButton');
 addBookBtn.addEventListener('click', () => {
   openBookForm();
+  addBookBtn.disabled = true;
 });
 
+const newBookForm = document.querySelector('#newBookForm');
 function openBookForm() {
-  document.querySelector('#newBookForm').style.display = 'block';
+  newBookForm.style.display = 'block';
+  newBookForm.reset();
 }
 
-const submitBookInfo = document.querySelector('#submitBookInfo');
-submitBookInfo.addEventListener('click', (event) => {
-  event.preventDefault();
+newBookForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Do not submit form
 
   addBookToLibrary(
     new Book(
@@ -37,8 +39,14 @@ submitBookInfo.addEventListener('click', (event) => {
   closeBookForm();
 });
 
+const cancelBookInfo = document.querySelector('#cancelBookInfo');
+cancelBookInfo.addEventListener('click', (event) => {
+  closeBookForm();
+});
+
 function closeBookForm() {
   document.querySelector('#newBookForm').style.display = 'none';
+  addBookBtn.disabled = false;
 }
 
 function displayLibrary() {
