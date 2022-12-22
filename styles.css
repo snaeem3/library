@@ -1,6 +1,65 @@
+:root {
+    --color-shadow: grey;
+    --section-padding: 8px;
+    --section-margin: 8px;
+    --border-radius-default: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background: none;
+}
+
 body {
     background: rgb(54, 54, 54);
     color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+header {
+    padding: var(--section-padding);
+    /* margin: var(--section-margin); */
+    background: purple;
+    text-align: center;
+}
+
+
+
+#newBookForm {
+    align-self: center;
+    padding: var(--section-padding);
+    border: solid 2px;
+    width: fit-content;
+}
+
+.form-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#read-status {
+    text-align: center;
+
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bookDiv {
+    padding: var(--section-padding);
+    margin: var(--section-margin);
 }
 
 /* toggle in label designing */

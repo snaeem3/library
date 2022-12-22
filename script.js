@@ -60,11 +60,13 @@ function displayLibrary() {
   let index = 0;
   myLibrary.forEach((book) => {
     console.log(index);
+    const bookDiv = document.createElement('div');
     const bookTable = document.createElement('table');
     const readSwitch = document.createElement('input');
     const readLabel = document.createElement('label');
     const deleteBtn = document.createElement('button');
 
+    bookDiv.setAttribute('class', 'bookDiv');
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('class', 'checkbox');
     readSwitch.setAttribute('id', `switch${index}`);
@@ -96,8 +98,8 @@ function displayLibrary() {
       readSwitch.setAttribute('checked', 'checked');
     }
 
-    contentDiv.appendChild(deleteBtn);
-    contentDiv.appendChild(bookTable);
+    bookDiv.appendChild(deleteBtn);
+    bookDiv.appendChild(bookTable);
     // const readLabelText = document.createElement('p');
 
     readSwitch.addEventListener('change', (event) => {
@@ -117,8 +119,9 @@ function displayLibrary() {
     });
 
     // readLabel.appendChild(readLabelText);
-    contentDiv.appendChild(readSwitch);
-    contentDiv.appendChild(readLabel);
+    bookDiv.appendChild(readSwitch);
+    bookDiv.appendChild(readLabel);
+    contentDiv.appendChild(bookDiv);
     index += 1;
   });
 }

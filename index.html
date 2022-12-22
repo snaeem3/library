@@ -15,13 +15,15 @@
         <button id="addBookButton" disabled>Add book</button>
     </div>
     <form action="" id="newBookForm">
-        <label for="title">Book Title: </label><input type="text" name="title" id="title" required>
-        <label for="author">Author: </label><input type="text" name="author" id="author" required>
-        <label for="pages">Number of pages: </label><input type="number" name="pages" id="pages" min="1">
-        <div id="read-status">
-            Read?
-            <input type="radio" name="book-read" id="read" value="read" checked><label for="book-read">Read</label>
-            <input type="radio" name="book-read" id="unread" value="unread"><label for="book-read">Unread</label>
+        <div class="form-inputs">
+            <label for="title">Book Title: </label><input type="text" name="title" id="title" required>
+            <label for="author">Author: </label><input type="text" name="author" id="author" required>
+            <label for="pages">Number of pages: </label><input type="number" name="pages" id="pages" min="1">
+            <div id="read-status-label">Read?</div>
+            <div id="read-status">
+                <input type="radio" name="book-read" id="read" value="read" checked><label for="book-read">Read</label>
+                <input type="radio" name="book-read" id="unread" value="unread"><label for="book-read">Unread</label>
+            </div>
         </div>
         <button type="submit" id="submitBookInfo">Submit</button>
         <button id="cancelBookInfo">Cancel</button>
