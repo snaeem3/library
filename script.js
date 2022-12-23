@@ -32,7 +32,7 @@ newBookForm.addEventListener('submit', (event) => {
       document.querySelector('#title').value,
       document.querySelector('#author').value,
       parseInt(document.querySelector('#pages').value),
-      document.querySelector('#read').checked
+      document.querySelector('#book-read').checked
     )
   );
 
