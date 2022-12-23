@@ -107,6 +107,10 @@ function displayLibrary() {
     bookTable.removeChild(bookTable.lastChild);
 
     readStatus.textContent = book.read ? 'Read' : 'Unread';
+    readStatus.setAttribute('style', 'color: red');
+    if (book.read) {
+      readStatus.setAttribute('style', 'color: green');
+    }
 
     readSwitch.addEventListener('change', (event) => {
       if (event.currentTarget.checked) {
