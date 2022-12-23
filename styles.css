@@ -47,9 +47,36 @@ header {
     grid-template-columns: 1fr 1fr;
 }
 
-#read-status {
-    text-align: center;
+#book-read-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
 
+#unread {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    opacity: 1;
+    color: red;
+}
+
+input[type=checkbox]:checked ~ #unread{
+    opacity: 0.1;
+}
+
+#read {
+    opacity: 0.1;
+}
+
+input[type=checkbox]:checked ~ #read{
+    color: green;
+    opacity: 1;
+}
+
+.checkbox-container {
+    grid-column: 2 / 3;
 }
 
 #content {
@@ -86,11 +113,11 @@ header {
     transition:  all 0.5s;
 }
 
-/* Toggle text */
+/* Toggle text
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-}
+} */
 
 /* Checkbox checked effect */
 .checkbox:checked + .toggle::after {
