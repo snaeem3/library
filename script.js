@@ -60,18 +60,23 @@ function displayLibrary() {
   let index = 0;
   myLibrary.forEach((book) => {
     console.log(index);
+
+    // Create book elements
     const bookDiv = document.createElement('div');
     const bookTable = document.createElement('table');
     const readSwitch = document.createElement('input');
     const readLabel = document.createElement('label');
+    const readStatus = document.createElement('p');
     const deleteBtn = document.createElement('button');
 
+    // Set attributes for new book elements
     bookDiv.setAttribute('class', 'bookDiv');
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('class', 'checkbox');
     readSwitch.setAttribute('id', `switch${index}`);
     readLabel.setAttribute('for', `switch${index}`);
     readLabel.setAttribute('class', 'toggle');
+    readStatus.setAttribute('id', 'read-status');
     deleteBtn.innerText = 'Delete';
     deleteBtn.setAttribute('id', `delete${index}`);
     deleteBtn.setAttribute('class', 'delete');
@@ -98,9 +103,10 @@ function displayLibrary() {
       readSwitch.setAttribute('checked', 'checked');
     }
 
-    bookDiv.appendChild(deleteBtn);
-    bookDiv.appendChild(bookTable);
-    // const readLabelText = document.createElement('p');
+    // Remove book read row from table
+    bookTable.removeChild(bookTable.lastChild);
+
+    readStatus.textContent = book.read ? 'Read' : 'Unread';
 
     readSwitch.addEventListener('change', (event) => {
       if (event.currentTarget.checked) {
@@ -111,14 +117,15 @@ function displayLibrary() {
       const libraryIndex = parseInt(event.currentTarget.id.substring(6)); // the id is 'switch[index]' so ignore first 6 characters
       updateReadValue(libraryIndex);
     });
-    // readLabelText.innerText = 'UNREAD    READ';
 
     deleteBtn.addEventListener('click', (event) => {
       const libraryIndex = parseInt(event.currentTarget.id.substring(6)); // the id is 'delete[index]' so ignore first 6 characters
       deleteBook(libraryIndex);
     });
 
-    // readLabel.appendChild(readLabelText);
+    bookDiv.appendChild(deleteBtn);
+    bookDiv.appendChild(bookTable);
+    bookDiv.appendChild(readStatus);
     bookDiv.appendChild(readSwitch);
     bookDiv.appendChild(readLabel);
     contentDiv.appendChild(bookDiv);
