@@ -1,4 +1,5 @@
 const myLibrary = [];
+const contentDiv = document.querySelector('#content');
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -22,6 +23,7 @@ const newBookForm = document.querySelector('#newBookForm');
 function openBookForm() {
   newBookForm.style.display = 'block';
   newBookForm.reset();
+  contentDiv.setAttribute('style', 'filter: blur(2px)');
 }
 
 newBookForm.addEventListener('submit', (event) => {
@@ -47,10 +49,10 @@ cancelBookInfo.addEventListener('click', (event) => {
 function closeBookForm() {
   document.querySelector('#newBookForm').style.display = 'none';
   addBookBtn.disabled = false;
+  contentDiv.setAttribute('style', 'filter: blur(0)');
 }
 
 function displayLibrary() {
-  const contentDiv = document.querySelector('#content');
   // Clear existing books
   while (contentDiv.firstChild) {
     contentDiv.removeChild(contentDiv.firstChild);
@@ -63,21 +65,26 @@ function displayLibrary() {
 
     // Create book elements
     const bookDiv = document.createElement('div');
+    const readContainer = document.createElement('div');
     const bookTable = document.createElement('table');
     const readSwitch = document.createElement('input');
     const readLabel = document.createElement('label');
     const readStatus = document.createElement('p');
     const deleteBtn = document.createElement('button');
+    const trashIcon = document.createElement('img');
+    trashIcon.src = './images/delete_FILL0_wght400_GRAD0_opsz48.svg';
 
     // Set attributes for new book elements
     bookDiv.setAttribute('class', 'bookDiv');
+    readContainer.setAttribute('class', 'bookDivHeader');
+    deleteBtn.innerText = 'Delete Book';
+    deleteBtn.appendChild(trashIcon);
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('class', 'checkbox');
     readSwitch.setAttribute('id', `switch${index}`);
     readLabel.setAttribute('for', `switch${index}`);
     readLabel.setAttribute('class', 'toggle');
     readStatus.setAttribute('id', 'read-status');
-    deleteBtn.innerText = 'Delete';
     deleteBtn.setAttribute('id', `delete${index}`);
     deleteBtn.setAttribute('class', 'delete');
 
@@ -127,11 +134,15 @@ function displayLibrary() {
       deleteBook(libraryIndex);
     });
 
-    bookDiv.appendChild(deleteBtn);
     bookDiv.appendChild(bookTable);
-    bookDiv.appendChild(readStatus);
-    bookDiv.appendChild(readSwitch);
-    bookDiv.appendChild(readLabel);
+    readContainer.appendChild(readStatus);
+    readContainer.appendChild(readSwitch);
+    readContainer.appendChild(readLabel);
+    // bookDiv.appendChild(readStatus);
+    // bookDiv.appendChild(readSwitch);
+    // bookDiv.appendChild(readLabel);
+    bookDiv.appendChild(readContainer);
+    bookDiv.appendChild(deleteBtn);
     contentDiv.appendChild(bookDiv);
     index += 1;
   });
@@ -150,7 +161,14 @@ function deleteBook(libraryIndex) {
 displayLibrary();
 console.log(myLibrary);
 const book1 = new Book('best book', 'me', 214, true);
-const book2 = new Book('worst book', 'you', 214, false);
+const book2 = new Book(
+  'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
+  'you',
+  214,
+  false
+);
+const book3 = new Book('.', '.', 1, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
+addBookToLibrary(book3);
 console.log(myLibrary);

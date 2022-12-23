@@ -24,6 +24,7 @@ button {
     text-decoration: none;
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 body {
@@ -51,6 +52,7 @@ header {
     padding: var(--section-padding);
     border: solid 2px;
     border-radius: 24px;
+    font-size: 32px;
 }
 
 #newBookForm {
@@ -64,6 +66,8 @@ header {
     top: 20%;
     text-align: center;
     z-index: 1;
+    font-size: 24px;
+    box-shadow: 2px 5px 5px var(--color-shadow);
 }
 
 #newBookForm > h2 {
@@ -77,6 +81,10 @@ header {
     text-align: right;
     row-gap: 10px;
     column-gap: 10px;
+}
+
+input[type=number] {
+    text-align: right;
 }
 
 #book-read-container {
@@ -115,13 +123,24 @@ input[type=checkbox]:checked ~ #read{
 #newBookForm button {
     padding: var(--section-padding);
     margin: var(--section-margin);
-    border: 1px solid;
+    /* border: 1px solid gray; */
     border-radius: 16px;
+    width: 100px;
+}
+
+#submitBookInfo {
+    background: rgb(0, 132, 255);
+    color: white;
+}
+
+#cancelBookInfo {
+    outline: 2px solid rgb(31, 31, 31);
 }
 
 #content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    filter: blur(2px);
 }
 
 .bookDiv {
@@ -136,6 +155,11 @@ input[type=checkbox]:checked ~ #read{
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    justify-content: space-between;
+    /* display: grid;
+    grid-template-columns: 1fr;
+    align-items: center; */
+    box-shadow: 2px 5px 5px var(--color-shadow);
 }
 
 th {
@@ -148,6 +172,30 @@ th {
 td {
     padding: var(--section-padding);
     text-align: right;
+    font-size: 24px;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+tr:first-child td {
+    font-style: italic; /* Italicize Title */
+    font-size: 28;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: var(--section-padding);
+    border: solid 2px black;
+    border-radius: 4px;
+    width: 100%;
+    background: gray;
+    font-size: 24px;
+}
+.delete img {
+    margin-left: 10px;
 }
 
 /* toggle in label designing */
