@@ -154,6 +154,7 @@ input[type=checkbox]:checked ~ #read{
     padding: var(--section-padding);
     font-size: 18px;
     border: solid 1px black;
+    border-bottom: solid 4px red;
     border-radius: 8px;
     background: white;
     width: 350px;
@@ -169,11 +170,16 @@ input[type=checkbox]:checked ~ #read{
     box-shadow: 2px 5px 5px var(--color-shadow);
 }
 
+.bookDiv:has(input[type=checkbox]:checked) {
+    border-bottom: solid 4px green;
+}
+
 th {
     padding: var(--section-padding);
     font-size: 32px;
     text-transform: capitalize;
     text-align: left;
+    vertical-align: top;
 }
 
 td {
