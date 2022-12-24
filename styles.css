@@ -136,7 +136,7 @@ input[type=checkbox]:checked ~ #read{
 #newBookForm button {
     padding: var(--section-padding);
     margin: var(--section-margin);
-    /* border: 1px solid gray; */
+    font-size: 18px;
     border-radius: 16px;
     width: 100px;
 }
@@ -157,8 +157,6 @@ input[type=checkbox]:checked ~ #read{
     justify-items: center;
     column-gap: 30px;
     row-gap: 30px;
-    /* background: rgb(255, 217, 0); */
-    /* width: 100%; */
     padding: var(--section-padding);
     filter: blur(2px);
 }
@@ -242,16 +240,9 @@ tr:first-child td {
     height: 50px;
     border-radius: 50%;
     background-color: gray;
-    /* top: 1px; */
     left: -1px;
     transition:  all 0.5s;
 }
-
-/* Toggle text
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-} */
 
 /* Checkbox checked effect */
 .checkbox:checked + .toggle::after {

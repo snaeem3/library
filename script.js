@@ -61,7 +61,7 @@ function displayLibrary() {
   // Loop through each book in library
   let index = 0;
   myLibrary.forEach((book) => {
-    console.log(index);
+    // console.log(index);
 
     // Create book elements
     const bookDiv = document.createElement('div');
@@ -140,7 +140,6 @@ function displayLibrary() {
     readContainer.appendChild(readLabel);
     readContainer.appendChild(deleteBtn);
     bookDiv.appendChild(readContainer);
-    // bookDiv.appendChild(deleteBtn);
     contentDiv.appendChild(bookDiv);
     index += 1;
   });
@@ -157,16 +156,15 @@ function deleteBook(libraryIndex) {
 }
 
 displayLibrary();
-console.log(myLibrary);
-const book1 = new Book('best book', 'me', 214, true);
-const book2 = new Book(
-  'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
-  'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
-  214,
-  false
-);
-const book3 = new Book('.', '.', 1, false);
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
-console.log(myLibrary);
+
+// const book1 = new Book('best book', 'me', 214, true);
+// const book2 = new Book(
+//   'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
+//   'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
+//   214,
+//   false
+// );
+// const book3 = new Book('.', '.', 1, false);
+// addBookToLibrary(book1);
+// addBookToLibrary(book2);
+// addBookToLibrary(book3);
