@@ -138,18 +138,25 @@ input[type=checkbox]:checked ~ #read{
 }
 
 #content {
+    align-self: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 30px;
+    row-gap: 30px;
+    /* background: rgb(255, 217, 0); */
+    /* width: 100%; */
+    padding: var(--section-padding);
     filter: blur(2px);
 }
 
 .bookDiv {
     padding: var(--section-padding);
-    margin: var(--section-margin);
     font-size: 18px;
     border: solid 1px black;
     border-radius: 8px;
-    width: fit-content;
+    background: white;
+    width: 350px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -207,6 +214,7 @@ tr:first-child td {
     background-color: red;
     border-radius: 30px;
     border: 2px solid gray;
+    cursor: pointer;
 }
 
 /* After slide changes */

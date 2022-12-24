@@ -138,11 +138,9 @@ function displayLibrary() {
     readContainer.appendChild(readStatus);
     readContainer.appendChild(readSwitch);
     readContainer.appendChild(readLabel);
-    // bookDiv.appendChild(readStatus);
-    // bookDiv.appendChild(readSwitch);
-    // bookDiv.appendChild(readLabel);
+    readContainer.appendChild(deleteBtn);
     bookDiv.appendChild(readContainer);
-    bookDiv.appendChild(deleteBtn);
+    // bookDiv.appendChild(deleteBtn);
     contentDiv.appendChild(bookDiv);
     index += 1;
   });
@@ -163,7 +161,7 @@ console.log(myLibrary);
 const book1 = new Book('best book', 'me', 214, true);
 const book2 = new Book(
   'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
-  'you',
+  'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
   214,
   false
 );
