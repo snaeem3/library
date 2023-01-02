@@ -1,11 +1,23 @@
+const newBookForm = document.querySelector('#newBookForm');
+const addBookBtn = document.querySelector('#addBookButton');
+const cancelBookInfo = document.querySelector('#cancelBookInfo');
 const myLibrary = [];
 const contentDiv = document.querySelector('#content');
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+// }
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function addBookToLibrary(book) {
@@ -13,13 +25,11 @@ function addBookToLibrary(book) {
   displayLibrary();
 }
 
-const addBookBtn = document.querySelector('#addBookButton');
 addBookBtn.addEventListener('click', () => {
   openBookForm();
   addBookBtn.disabled = true;
 });
 
-const newBookForm = document.querySelector('#newBookForm');
 function openBookForm() {
   newBookForm.style.display = 'block';
   newBookForm.reset();
@@ -41,7 +51,6 @@ newBookForm.addEventListener('submit', (event) => {
   closeBookForm();
 });
 
-const cancelBookInfo = document.querySelector('#cancelBookInfo');
 cancelBookInfo.addEventListener('click', (event) => {
   closeBookForm();
 });
@@ -155,7 +164,9 @@ function deleteBook(libraryIndex) {
   displayLibrary();
 }
 
-displayLibrary();
+window.onload = () => {
+  displayLibrary();
+};
 
 // const book1 = new Book('best book', 'me', 214, true);
 // const book2 = new Book(
